@@ -13,4 +13,4 @@ export default class Player {
   draw(context) {
     context.drawImage(this.image, this.x, this.y);
   }
-}
+};
