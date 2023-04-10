@@ -21,7 +21,7 @@ export default class InputHandler {
           break;
         case 'ArrowRight':
         case 'd':
-          this.lastKey = 'PRESS right';
+          this.lastKey = 'RELEASE right';
           break;
       }
     }); 
