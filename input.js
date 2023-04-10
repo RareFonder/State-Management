@@ -11,6 +11,14 @@ export default class InputHandler {
         case 'd':
           this.lastKey = 'PRESS right';
           break;
+        case 'ArrowDown':
+        case 's':
+          this.lastKey = 'PRESS down';
+          break;
+        case 'ArrowUp':
+        case 'w':
+          this.lastKey = 'PRESS up';
+          break;
       }
     }); 
     window.addEventListener('keyup', (e) => {
@@ -22,6 +30,14 @@ export default class InputHandler {
         case 'ArrowRight':
         case 'd':
           this.lastKey = 'RELEASE right';
+          break;
+        case 'ArrowDown':
+        case 's':
+          this.lastKey = 'RELEASE down';
+          break;
+        case 'ArrowUp':
+        case 'w':
+          this.lastKey = 'RELEASE up';
           break;
       }
     }); 
