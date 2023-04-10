@@ -11,6 +11,8 @@ export default class Player {
     this.height = 181.83;
     this.x = this.gameWidth * 0.5 - this.width * 0.5;
     this.y = this.gameHeight - this.height;
+    this.vy = 0;
+    this.weight = 0.5;
     this.frameX = 0;
     this.frameY = 0;
     this.speed = 0;
@@ -21,9 +23,18 @@ export default class Player {
   }
   update(input) {
     this.currentState.handleInput(input);
+    // Horizontal movement
     this.x += this.speed;
     if (this.x <= 0) this.x = 0;
     else if (this.x >= this.gameWidth - this.width) this.x= this.gameWidth - this.width;
+
+    // Vertical movement
+    this.y += this.vy;
+    if (this.y < this.gameHeight - this.height) {
+      this.vy += this.weight;
+    } else {
+      this.vy = 0;
+    }
   }
   setState(state) {
     this.currentState = this.states[state];
