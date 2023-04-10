@@ -1,4 +1,6 @@
 import Player from './player.js';
+import InputHandler from './input.js';
+import {drawStatusText} from './utils.js';
 
 window.onload = () => {
   loading.style.display = 'none';
@@ -9,4 +11,13 @@ window.onload = () => {
 
   const player = new Player(canvas.width, canvas.height);
   player.draw(ctx);
+  const input = new InputHandler(); 
+
+  const animate = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    player.draw(ctx);
+    drawStatusText(ctx, input);
+    requestAnimationFrame(animate);
+  }
+  animate();
 };
